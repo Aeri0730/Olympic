@@ -15,7 +15,9 @@ function App() {
     silver: 0,
     bronze: 0,
   });
-
+  const resetCountry = () => {
+    setCountry({ name: "", gold: 0, silver: 0, bronze: 0 });
+  };
   // 국가 추가 함수
   const addCountries = () => {
     const haveCountry = country_List.some(
@@ -23,11 +25,11 @@ function App() {
     );
     if (haveCountry) {
       alert("이미 등록된 국가입니다.");
-      setCountry({ name: "", gold: 0, silver: 0, bronze: 0 });
+      resetCountry();
       return;
     } else if (country.gold < 0 || country.silver < 0 || country.bronze < 0) {
       alert("메달 수를 확인하세요 !");
-      setCountry({ name: "", gold: 0, silver: 0, bronze: 0 });
+      resetCountry();
       return;
     }
     setCountry_List([...country_List, country]);
@@ -35,7 +37,7 @@ function App() {
       "countries",
       JSON.stringify([...country_List, country])
     );
-    setCountry({ name: "", gold: 0, silver: 0, bronze: 0 });
+    resetCountry();
   };
 
   const updateCountry = () => {
@@ -44,11 +46,11 @@ function App() {
     );
     if (!haveCountry) {
       alert("등록되지 않은 국가입니다.");
-      setCountry({ name: "", gold: 0, silver: 0, bronze: 0 });
+      resetCountry();
       return;
     } else if (country.gold < 0 || country.silver < 0 || country.bronze < 0) {
       alert("메달 수를 확인하세요 !");
-      setCountry({ name: "", gold: 0, silver: 0, bronze: 0 });
+      resetCountry();
       return;
     }
     const updatedCountries = country_List.map((countries) =>

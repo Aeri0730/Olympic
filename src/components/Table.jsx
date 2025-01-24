@@ -3,19 +3,30 @@ import Button from "./Button";
 import styled from "styled-components";
 
 const Table = ({ removeFunc, countryList }) => {
-  const newList = [...countryList];
+  const loadList = [...countryList];
+  const newList = loadList.map((country) => {
+    const total =
+      Number(country.gold) + Number(country.silver) + Number(country.bronze);
+    return { ...country, total: total };
+  });
   return (
     <TableWrap>
-       <thead>{/* 테이블의 'head'부분 :속성 */}
-        <tr> {/*테이블의 각 행 모아두기 */}
+      <thead>
+        {/* 테이블의 'head'부분 :속성 */}
+        <tr>
+          {" "}
+          {/*테이블의 각 행 모아두기 */}
           <th>국가명</th> {/* 각 열(속성)  */}
           <th>금메달</th>
           <th>은메달</th>
           <th>동메달</th>
+          <th>총 메달</th>
           <th>액션</th>
         </tr>
       </thead>
-       <tbody> {/*테이블의 'body' : 인스턴스 */}
+      <tbody>
+        {" "}
+        {/*테이블의 'body' : 인스턴스 */}
         {newList
           .sort((a, b) => b.gold - a.gold)
           .map((item) => (
@@ -24,6 +35,7 @@ const Table = ({ removeFunc, countryList }) => {
               <td>{item.gold}</td>
               <td>{item.silver}</td>
               <td>{item.bronze}</td>
+              <td>{item.total}</td>
               <td>
                 <Button
                   text="삭제"
