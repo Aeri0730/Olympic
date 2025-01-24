@@ -1,8 +1,130 @@
-# React + Vite
+# README.md : Olympic
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+```markdown
+# React 프로젝트 - 메달 집계 웹 애플리케이션
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+이 프로젝트는 올림픽 국가별 메달 집계를 관리할 수 있는 웹 애플리케이션입니다.
+사용자는 국가 정보를 입력하고 금, 은, 동메달의 개수를 추가하거나 수정, 삭제할 수 있습니다.
+React와 Vite를 사용하여 빠르고 효율적인 개발 환경에서 구축되었습니다.
+
+---
+
+## 프로젝트 실행하기
+
+### 1. Node.js 설치
+- **Node.js 20** 이상이 필요합니다.
+- Node.js가 설치되어 있지 않다면 [Node.js 공식 웹사이트](https://nodejs.org/)에서 설치하세요.
+
+### 2. Vite 설치
+- 이 프로젝트는 Vite를 사용합니다.
+- Vite가 설치되어 있지 않다면 아래 명령어를 실행해 설치하세요:
+  ```bash
+  npm create vite@latest
+
+```
+
+### 3. 프로젝트 의존성 설치
+
+- 프로젝트 디렉토리로 이동 후 아래 명령어를 실행하여 필요한 `node_modules`를 설치합니다:
+    
+    ```bash
+    npm install
+    
+    ```
+    
+
+### 4. 개발 서버 실행
+
+- 다음 명령어를 실행해 개발 서버를 시작합니다:
+    
+    ```bash
+    npm run dev
+    
+    ```
+    
+- 명령어 실행 후, 터미널에 표시된 로컬 URL(기본: `http://localhost:5173`)로 접속하여 웹 애플리케이션을 확인할 수 있습니다.
+
+---
+
+## 주요 기능
+
+1. **국가별 메달 정보 추가**
+    - 국가명, 금메달, 은메달, 동메달 개수를 입력하고 리스트에 추가할 수 있습니다.
+2. **국가별 메달 정보 수정**
+    - 기존에 추가된 국가의 정보를 수정할 수 있습니다.
+3. **국가별 메달 정보 삭제**
+    - 특정 국가를 선택하여 리스트에서 제거할 수 있습니다.
+4. **메달 순위 정렬**
+    - 금메달 개수를 기준으로 국가 순위가 자동 정렬됩니다.
+5. **사용자 친화적 UI**
+    - `styled-components`를 사용해 컴포넌트 기반의 일관된 스타일링 구현.
+
+---
+
+## 사용 기술
+
+- **React**: 컴포넌트 기반의 사용자 인터페이스 구축.
+- **Vite**: 빠른 개발 환경 제공.
+- **styled-components**: 컴포넌트 단위로 스타일링.
+- **Node.js 20**: 서버 환경.
+
+---
+
+## 프로젝트 구조
+
+```
+📦 프로젝트 루트
+├── 📂 src
+│   ├── 📂 components
+│   │   ├── Button.jsx  // 버튼 컴포넌트
+│   │   ├── Input.jsx   // 입력 필드 컴포넌트
+│   │   └── Table.jsx   // 메달 집계 테이블 컴포넌트
+│   ├── App.jsx          // 메인 로직
+│   └── main.jsx         // React 앱 진입점
+├── 📂 public
+├── .gitignore
+├── package.json
+├── README.md
+└── vite.config.js
+
+```
+
+---
+
+## 설치 및 실행 문제 해결
+
+1. **`node_modules`가 설치되지 않을 때**:
+    - `npm install` 실행 중 문제가 발생하면 다음 명령어로 캐시를 지우고 다시 실행하세요:
+        
+        ```bash
+        npm cache clean --force
+        npm install
+        
+        ```
+        
+2. **개발 서버가 실행되지 않을 때**:
+    - Vite가 설치되지 않았을 가능성이 있습니다. 아래 명령어로 설치 후 다시 실행하세요:
+        
+        ```bash
+        npm install vite
+        npm run dev
+        
+        ```
+        
+3. **포트 충돌 문제**:
+    - 기본 포트 `5173`에서 충돌이 발생하면 다른 포트를 지정하여 실행하세요:
+        
+        ```bash
+        npm run dev -- --port 3000
+        
+        ```
+        
+
+---
+
+## 예시 화면
+![스크린샷 2025-01-24 170200](https://github.com/user-attachments/assets/53f72046-23a1-4ce0-bf5c-6379c88fb0da)
+
+---
