@@ -81,7 +81,7 @@ function App() {
     const { name, value, type } = e.target;
     setCountry({
       ...country,
-      [name]: type === "number" ? parseInt(value, 10) || 0 : value,
+      [name]: type === "number" ? +value : value,
     });
   };
 

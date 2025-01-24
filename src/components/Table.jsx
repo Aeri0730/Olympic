@@ -5,8 +5,10 @@ import styled from "styled-components";
 const Table = ({ removeFunc, countryList }) => {
   const loadList = [...countryList];
   const newList = loadList.map((country) => {
-    const total =
-      Number(country.gold) + Number(country.silver) + Number(country.bronze);
+    const total = country.gold + country.silver + country.bronze;
+
+    // Number(country.gold) + Number(country.silver) + Number(country.bronze);
+
     return { ...country, total: total };
   });
   return (
